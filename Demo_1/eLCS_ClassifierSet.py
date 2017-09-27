@@ -23,8 +23,8 @@ Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA
 """
 
 #Import Required Modules---------------------
-from eLCS_Constants import *
-from eLCS_Classifier import Classifier
+from Demo_1.eLCS_Constants import *
+from Demo_1.eLCS_Classifier import Classifier
 import random
 import copy
 import sys
