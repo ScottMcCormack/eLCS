@@ -24,23 +24,24 @@ Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA
 """
 
 #Import Required Modules------------------------------------
-from eLCS_Timer import Timer
-from eLCS_ConfigParser import ConfigParser
-from eLCS_Offline_Environment import Offline_Environment
-from eLCS_Algorithm import eLCS
-from eLCS_Constants import *
+from Demo_5.eLCS_Timer import Timer
+from Demo_5.eLCS_ConfigParser import ConfigParser
+from Demo_5.eLCS_Offline_Environment import Offline_Environment
+from Demo_5.eLCS_Algorithm import eLCS
+from Demo_5.eLCS_Constants import *
 #-----------------------------------------------------------
+
 
 helpstr = """Failed attempt to run e-LCS.  Please ensure that a configuration file giving all run parameters has been specified."""
 
-#Specify the name and file path for the configuration file. 
+#Specify the name and file path for the configuration file.
 configurationFile = "eLCS_Configuration_File.txt"
 
 #Obtain all run parameters from the configuration file and store them in the 'Constants' module.
 ConfigParser(configurationFile)
 
 #Initialize the 'Timer' module which tracks the run time of algorithm and it's different components.
-timer = Timer() 
+timer = Timer()
 cons.referenceTimer(timer)
 
 #Initialize the 'Environment' module which manages the data presented to the algorithm.  While e-LCS learns iteratively (one inistance at a time
