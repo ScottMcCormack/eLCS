@@ -24,8 +24,8 @@ Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA
 """
 
 #Import Required Modules--------------------------------------
-from eLCS_DataManagement import DataManagement
-from eLCS_Constants import * 
+from Demo_2.eLCS_DataManagement import DataManagement
+from Demo_2.eLCS_Constants import *
 import sys
 #-------------------------------------------------------------
 
