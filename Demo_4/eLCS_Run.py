@@ -24,10 +24,10 @@ Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA
 """
 
 #Import Required Modules------------------------------------
-from eLCS_ConfigParser import ConfigParser
-from eLCS_Offline_Environment import Offline_Environment
-from eLCS_Algorithm import eLCS
-from eLCS_Constants import *
+from Demo_4.eLCS_ConfigParser import ConfigParser
+from Demo_4.eLCS_Offline_Environment import Offline_Environment
+from Demo_4.eLCS_Algorithm import eLCS
+from Demo_4.eLCS_Constants import *
 #-----------------------------------------------------------
 
 helpstr = """Failed attempt to run e-LCS.  Please ensure that a configuration file giving all run parameters has been specified."""
