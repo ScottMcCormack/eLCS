@@ -23,9 +23,7 @@ Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA
 """
 
 #Import Required Modules----------
-from Demo_5.eLCS_Constants import *
-import os
-import copy
+from Demo_5.eLCS_Constants import cons
 #---------------------------------
 
 class ConfigParser:
