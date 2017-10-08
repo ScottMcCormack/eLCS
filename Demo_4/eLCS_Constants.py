@@ -22,68 +22,68 @@ Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA
 ---------------------------------------------------------------------------------------------------------------------------------------------------------
 """
 
+
 class Constants:
-    def setConstants(self,par):
+    def setConstants(self, par):
         """ Takes the parameters parsed as a dictionary from eLCS_ConfigParser and saves them as global constants. """
-        
+
         # Major Run Parameters -----------------------------------------------------------------------------------------
-        self.trainFile = par['trainFile']                                       #Saved as text
-        self.testFile = par['testFile']                                         #Saved as text
-        self.originalOutFileName = str(par['outFileName'])                      #Saved as text
-        self.outFileName = str(par['outFileName'])+'_eLCS'                  #Saved as text
-        self.learningIterations = par['learningIterations']                     #Saved as text
-        self.N = int(par['N'])                                                  #Saved as integer
-        self.p_spec = float(par['p_spec'])                                      #Saved as float
-        
+        self.trainFile = par['trainFile']  # Saved as text
+        self.testFile = par['testFile']  # Saved as text
+        self.originalOutFileName = str(par['outFileName'])  # Saved as text
+        self.outFileName = str(par['outFileName']) + '_eLCS'  # Saved as text
+        self.learningIterations = par['learningIterations']  # Saved as text
+        self.N = int(par['N'])  # Saved as integer
+        self.p_spec = float(par['p_spec'])  # Saved as float
+
         # Logistical Run Parameters ------------------------------------------------------------------------------------
         if par['randomSeed'] == 'False' or par['randomSeed'] == 'false':
-            self.useSeed = False                                                #Saved as Boolean
+            self.useSeed = False  # Saved as Boolean
         else:
-            self.useSeed = True                                                 #Saved as Boolean
-            self.randomSeed = int(par['randomSeed'])                            #Saved as integer
-            
-        self.labelInstanceID = par['labelInstanceID']                           #Saved as text
-        self.labelPhenotype = par['labelPhenotype']                             #Saved as text
-        self.labelMissingData = par['labelMissingData']                         #Saved as text
-        self.discreteAttributeLimit = int(par['discreteAttributeLimit'])        #Saved as integer
-        self.trackingFrequency = int(par['trackingFrequency'])                  #Saved as integer
-        
+            self.useSeed = True  # Saved as Boolean
+            self.randomSeed = int(par['randomSeed'])  # Saved as integer
+
+        self.labelInstanceID = par['labelInstanceID']  # Saved as text
+        self.labelPhenotype = par['labelPhenotype']  # Saved as text
+        self.labelMissingData = par['labelMissingData']  # Saved as text
+        self.discreteAttributeLimit = int(par['discreteAttributeLimit'])  # Saved as integer
+        self.trackingFrequency = int(par['trackingFrequency'])  # Saved as integer
+
         # Supervised Learning Parameters -------------------------------------------------------------------------------
-        self.nu = int(par['nu'])                                                #Saved as integer
-        self.chi = float(par['chi'])                                            #Saved as float
-        self.upsilon = float(par['upsilon'])                                    #Saved as float
-        self.theta_GA = int(par['theta_GA'])                                    #Saved as integer
-        self.theta_del = int(par['theta_del'])                                  #Saved as integer
-        self.beta = float(par['beta'])                                          #Saved as float
-        self.delta = float(par['delta'])                                        #Saved as float
-        self.init_fit = float(par['init_fit'])                                  #Saved as float
-        self.fitnessReduction = float(par['fitnessReduction'])                  #Saved as float
-        
+        self.nu = int(par['nu'])  # Saved as integer
+        self.chi = float(par['chi'])  # Saved as float
+        self.upsilon = float(par['upsilon'])  # Saved as float
+        self.theta_GA = int(par['theta_GA'])  # Saved as integer
+        self.theta_del = int(par['theta_del'])  # Saved as integer
+        self.beta = float(par['beta'])  # Saved as float
+        self.delta = float(par['delta'])  # Saved as float
+        self.init_fit = float(par['init_fit'])  # Saved as float
+        self.fitnessReduction = float(par['fitnessReduction'])  # Saved as float
+
         # Algorithm Heuristic Options -------------------------------------------------------------------------------
-        self.selectionMethod = par['selectionMethod']                           #Saved as text
-        self.theta_sel = float(par['theta_sel'])                                #Saved as float
-        
+        self.selectionMethod = par['selectionMethod']  # Saved as text
+        self.theta_sel = float(par['theta_sel'])  # Saved as float
+
         # PopulationReboot -------------------------------------------------------------------------------
-        self.doPopulationReboot = bool(int(par['doPopulationReboot']))          #Saved as Boolean
-        self.popRebootPath = par['popRebootPath']                               #Saved as text
-        
-        
+        self.doPopulationReboot = bool(int(par['doPopulationReboot']))  # Saved as Boolean
+        self.popRebootPath = par['popRebootPath']  # Saved as text
+
     def referenceEnv(self, e):
         """ Store reference to environment object. """
         self.env = e
- 
-        
+
     def parseIterations(self):
         """ Parse the 'learningIterations' string to identify the maximum number of learning iterations as well as evaluation checkpoints. """
-        checkpoints = self.learningIterations.split('.') 
-        for i in range(len(checkpoints)): 
+        checkpoints = self.learningIterations.split('.')
+        for i in range(len(checkpoints)):
             checkpoints[i] = int(checkpoints[i])
-            
-        self.learningCheckpoints = checkpoints
-        self.maxLearningIterations = self.learningCheckpoints[(len(self.learningCheckpoints)-1)] 
-        
-        if self.trackingFrequency == 0:
-            self.trackingFrequency = self.env.formatData.numTrainInstances  #Adjust tracking frequency to match the training data size - learning tracking occurs once every epoch
 
-#To access one of the above constant values from another module, import GHCS_Constants * and use "cons.something"
-cons = Constants() 
+        self.learningCheckpoints = checkpoints
+        self.maxLearningIterations = self.learningCheckpoints[(len(self.learningCheckpoints) - 1)]
+
+        if self.trackingFrequency == 0:
+            self.trackingFrequency = self.env.formatData.numTrainInstances  # Adjust tracking frequency to match the training data size - learning tracking occurs once every epoch
+
+
+# To access one of the above constant values from another module, import GHCS_Constants * and use "cons.something"
+cons = Constants()
